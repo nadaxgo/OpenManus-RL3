@@ -1,0 +1,11 @@
+[project]
+name = "agentenv_openmanus"
+version = "0.0.1"
+description = "Simple OpenManus demo environment"
+requires-python = ">=3.9"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
