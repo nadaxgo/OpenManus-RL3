@@ -1,6 +1,0 @@
-[submodule "OpenManus"]
-	path = OpenManus
-	url = https://github.com/mannaandpoem/OpenManus.git
-[submodule "openmanus"]
-	path = openmanus
-	url = https://github.com/mannaandpoem/OpenManus
