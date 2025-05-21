@@ -113,7 +113,7 @@ class OpenManusAgent:
             "maze": "MazeTask", "wordle": "WordleTask", "movie": "MovieTask",
             "sciworld": "SciworldTask", "sheet": "SheetTask", "sqlgym": "SqlGymTask",
             "textcraft": "TextCraftTask", "todo": "TodoTask", "weather": "WeatherTask",
-            "webarena": "WebarenaTask", "webshop": "WebshopTask",
+            "webarena": "WebarenaTask", "webshop": "WebshopTask", "openmanus": "OpenManusTask",
         }
 
         if env_name_lower not in ENV_TO_TASK_CLASS:
@@ -834,16 +834,21 @@ class OpenManusAgent:
 
         for prediction in predictions:
             if isinstance(prediction, str):
-                # Extract action or response tags
+                # Extract action, tool_call or response tags
                 action_pattern = r'<action>(.*?)</action>'
+                tool_call_pattern = r'<tool_call>(.*?)</tool_call>'
                 response_pattern = r'<response>(.*?)</response>'
 
                 action_match = re.search(action_pattern, prediction, re.DOTALL)
+                tool_call_match = re.search(tool_call_pattern, prediction, re.DOTALL)
                 response_match = re.search(response_pattern, prediction, re.DOTALL)
 
                 if action_match:
                     actions.append('action')
                     contents.append(action_match.group(1).strip())
+                elif tool_call_match:
+                    actions.append('action')
+                    contents.append(tool_call_match.group(1).strip())
                 elif response_match:
                     actions.append('response')
                     contents.append(response_match.group(1).strip())
