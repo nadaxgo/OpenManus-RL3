@@ -113,7 +113,7 @@ class OpenManusAgent:
             "maze": "MazeTask", "wordle": "WordleTask", "movie": "MovieTask",
             "sciworld": "SciworldTask", "sheet": "SheetTask", "sqlgym": "SqlGymTask",
             "textcraft": "TextCraftTask", "todo": "TodoTask", "weather": "WeatherTask",
-            "webarena": "WebarenaTask", "webshop": "WebshopTask",
+            "webarena": "WebarenaTask", "webshop": "WebshopTask", "openmanus": "OpenManusTask",
         }
 
         if env_name_lower not in ENV_TO_TASK_CLASS:
